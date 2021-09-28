@@ -1,20 +1,13 @@
-const Manager = require("../lib/Manager");
-const Employee = require("../lib/Employee");
+const { expect } = require("@jest/globals")
+const Manager = require('../lib/Manager')
 
-test("Can set office number via constructor argument", () => {
-  const testValue = 100;
-  const e = new Manager("Foo", 1, "test@test.com", testValue);
-  expect(e.officeNumber).toBe(testValue);
-});
+test('check for employee', () => {
+    const employee = new Manager('Steve', '311', 'test@gmail.com', '818-348-0360');
+    console.log(employee);
 
-test("getRole() should return \"Manager\"", () => {
-  const testValue = "Manager";
-  const e = new Manager("Foo", 1, "test@test.com", 100);
-  expect(e.getRole()).toBe(testValue);
-});
-
-test("Can get office number via getOffice()", () => {
-  const testValue = 100;
-  const e = new Manager("Foo", 1, "test@test.com", testValue);
-  expect(e.getOfficeNumber()).toBe(testValue);
-});
+    expect(employee.name).toBe('Steve');
+    expect(employee.id).toBe('311');
+    expect(employee.email).toBe('test@gmail.com');
+    expect(employee.officeNumber).toEqual(expect.any(String));
+    expect(employee.getRole()).toBe('Manager');
+}); 

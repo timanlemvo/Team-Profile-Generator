@@ -63,7 +63,7 @@ return inquirer.prompt([
             //  console.log(intern);
          } else if (answers.roleChoice === 'Engineer') {
             const engineer =  new Engineer(answers.name, answers.id, answers.email, answers.github);
-            // console.log(engineer);
+            // console.log(new Engineer());
             employeeArr.push(engineer);
             // console.log(employeeArr);
          } else if (answers.roleChoice === 'Manager') {
@@ -83,22 +83,21 @@ return inquirer.prompt([
     
 }
 
+function writeFile (template) {
+    fs.writeFile('./dist/index.html', template , (err) => {
+        if(err) throw err;
+        console.log('File Created!');
+    })
+}
+
 function initQuest() {
     employeeInfo()
     .then(() => {
        return templateInfo(employeeArr)}
     )
     .then((templateInfo) => {
-        console.log(templateInfo);
-       // writeFile();
-    })
-}
-
-
-function writeFile () {
-    fs.writeFile('index.html', template , (err) => {
-        if(err) throw err;
-        console.log('File Created!');
+        // console.log(templateInfo);
+       return writeFile(templateInfo);
     })
 }
 
