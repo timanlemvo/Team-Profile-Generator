@@ -21,7 +21,9 @@ The user should clone the repository from GitHub and download Node. This applica
 This project is license under MIT
 
 ## Tests
-Run `npm test` to run Jest for tests on constructors. 
+- Run `npm test` to run Jest for tests on constructors. 
+
+- Run `npm start` to run the team generator.
 
 ## Contributors
 Github: [Tima Nlemvo](https://github.com/timanlemvo)
